@@ -58,3 +58,16 @@ Follow these instructions to set up and run the project locally.
 ```sh
 git clone <your-repo-link>
 cd financial-document-analyzer
+
+## Bonus Features Implemented
+
+### 1. Queue Worker Model (Redis & RQ)
+To handle long-running AI analyses without blocking the API, the system was upgraded with a background worker model using Redis and the RQ (Redis Queue) library.
+- The `/analyze` endpoint now immediately returns a `job_id`.
+- A separate `worker.py` process listens on the queue and executes the analysis in the background.
+
+### 2. Database Integration (SQLite & SQLAlchemy)
+To persist analysis results, the application was integrated with a database.
+- An SQLite database (`analysis_jobs.db`) stores the status and results of each job.
+- The worker updates the database upon job completion.
+- A new `/results/{job_id}` endpoint allows users to retrieve the final analysis from the database at any time.
