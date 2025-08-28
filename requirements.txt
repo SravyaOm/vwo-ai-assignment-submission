@@ -1,0 +1,13 @@
+fastapi==0.110.3
+uvicorn
+python-dotenv
+crewai==0.35.8
+crewai-tools==0.4.0
+langchain-google-genai
+langchain-community
+pypdf
+chromadb==0.4.24
+python-multipart
+redis
+rq
+sqlalchemy
